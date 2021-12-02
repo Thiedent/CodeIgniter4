@@ -1,15 +1,33 @@
 version: 0.2
 
+# https://dev.to/pcmagas/cache-composer-dependencies-for-faster-builds-in-aws-codebuild-487
+# caching
+
+env:
+  variables:
+    COMPOSER_CACHE_DIR: .cache/composer # Create cache
 phases:
   install:
     runtime-versions:
         php: 7.4
     commands:
+      - mkdir -p .cache/composer # for cache
+      # install composer
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
       - composer install --no-interaction
 
+cache:
+  paths:
+    - .cache/composer/**/*
 artifacts:
   files:
-    - '**/*'
+    - app/**/*
+    - public/**/*
+    - system/**/*
+    - writable/**/*
+    - composer.json
+    - httpd.conf
+    - phpunit.xml.dist
+    - spark
   name: CodeigniterTest
