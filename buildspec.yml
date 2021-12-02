@@ -6,8 +6,8 @@ version: 0.2
 # env:
 #   variables:
 #     COMPOSER_CACHE_DIR: .cache/composer # Create cache
-phases:
-  install:
+# phases:
+#   install:
     # runtime-versions:
     #     php: 7.4
     # commands:
