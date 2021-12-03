@@ -1,3 +1,5 @@
+service codedeploy-agent start
+
 # start apache on reboot
 systemctl enable httpd
 
