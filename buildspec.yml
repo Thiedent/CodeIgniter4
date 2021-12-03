@@ -30,5 +30,8 @@ artifacts:
     - httpd.conf
     - phpunit.xml.dist
     - spark
+    - appspec.yml
+    - applicationStart.sh
+    - install.sh
     # - vendor/**/*
   name: CodeigniterTest
